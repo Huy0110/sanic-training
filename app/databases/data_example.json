@@ -1,0 +1,10 @@
+{
+  "_id": "user1",
+  "username": "user1",
+  "password": "hashed_password_1"
+}
+{
+  "_id": "user2",
+  "username": "user2",
+  "password": "hashed_password_2"
+}
