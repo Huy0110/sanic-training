@@ -31,8 +31,8 @@ class RemoteDBConfig:
 
 
 class MongoDBConfig:
-    USERNAME = os.environ.get("MONGO_USERNAME") or "just_for_dev"
-    PASSWORD = os.environ.get("MONGO_PASSWORD") or "password_for_dev"
+    USERNAME = os.environ.get("MONGO_USERNAME") or "huy"
+    PASSWORD = os.environ.get("MONGO_PASSWORD") or "123"
     HOST = os.environ.get("MONGO_HOST") or "localhost"
     PORT = os.environ.get("MONGO_PORT") or "27017"
     DATABASE = os.environ.get("MONGO_DATABASE") or "trainingSanic"

@@ -12,15 +12,16 @@ logger = get_logger('MongoDB')
 class MongoDB:
     def __init__(self, connection_url=None):
         if connection_url is None:
-            connection_url = f'mongodb://{MongoDBConfig.HOST}:{MongoDBConfig.PORT}'
-        self.connection_url = f'mongodb://localhost:{MongoDBConfig.PORT}'
-        self.client = MongoClient(self.connection_url)
+            connection_url = f'mongodb://huy:123@localhost:27017/?authSource=trainingSanic&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false'
+        # self.connection_url = connection_url.split('@')[-1]
+        print(connection_url)
+        self.client = MongoClient(connection_url)
         self.db = self.client[MongoDBConfig.DATABASE]
 
         self._books_col = self.db[MongoCollections.books]
         self._users_col = self.db[MongoCollections.users]
 
-        print(self.connection_url)
+        # print(self.connection_url)
         print(MongoDBConfig.DATABASE)
         print(MongoCollections.books)
 
@@ -42,7 +43,7 @@ class MongoDB:
             query = {'_id': book_id}
             print("query: ", query)
             cursor = self._books_col.find(query, projection=projection)
-            print("cursor: ", cursor)
+            print("cursor: ", cursor.count())
             return Book().from_dict(cursor[0])
         except Exception as ex:
             logger.exception(ex)
