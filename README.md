@@ -31,6 +31,11 @@ $ source venv/bin/activate
 ```
 $ pip3 install -r requirements.txt
 ```
+* Install redis-server for cache
+```
+sudo apt install redis-server
+
+```
 
 ## Framework Sanic
 
