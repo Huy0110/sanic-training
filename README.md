@@ -33,7 +33,7 @@ $ pip3 install -r requirements.txt
 ```
 * Install redis-server for cache
 ```
-sudo apt install redis-server
+sudo apt-get install redis-server
 
 ```
 
