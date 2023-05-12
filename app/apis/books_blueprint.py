@@ -78,10 +78,11 @@ async def create_book(request, username=None):
             book_objs = _db.get_books()
             books = [book.to_dict() for book in book_objs]
             await set_cache(r, CacheConstants.all_books, books)
-        books.append(book.to_dict())
-        # Set book object in Redis cache
-        async with request.app.ctx.redis as r:
-            await set_cache(r, CacheConstants.all_books, books)
+        else:
+            books.append(book.to_dict())
+            # Set book object in Redis cache
+            async with request.app.ctx.redis as r:
+                await set_cache(r, CacheConstants.all_books, books)
 
     return json({'status': 'success'})
 
