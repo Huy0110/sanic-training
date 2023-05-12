@@ -16,7 +16,9 @@ class MongoDB:
         # self.connection_url = connection_url.split('@')[-1]
         print(connection_url)
         self.client = MongoClient(connection_url)
-        self.db = self.client[MongoDBConfig.DATABASE]
+        # self.db = self.client[MongoDBConfig.DATABASE]
+
+        self.db = self.client['huy']
 
         self._books_col = self.db[MongoCollections.books]
         self._users_col = self.db[MongoCollections.users]
