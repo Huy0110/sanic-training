@@ -30,7 +30,7 @@ class BooksTests(unittest.TestCase):
     def test_login(self):
 
         user = {
-            "username": "huynew0",
+            "username": "huy",
             "password": "123"
         }
         request, response = app.test_client.post('auth/login', json = user)
@@ -69,11 +69,11 @@ class BooksTests(unittest.TestCase):
         self.assertTrue(any(b['title'] == 'test huy' for b in books))
 
     def test_get_book_by_id(self):
-        book_id = 'a68b7b5a-f19b-4557-a8a1-1a1237e2344a'
+        book_id = '10729227-e701-42ae-9db9-21ab2778cce2'
         request, response = app.test_client.get(f'/books/{book_id}')
         self.assertEqual(response.status, 200)
         data = json.loads(response.text)
-        self.assertEqual(data.get('_id'), 'a68b7b5a-f19b-4557-a8a1-1a1237e2344a')
+        self.assertEqual(data.get('_id'), '10729227-e701-42ae-9db9-21ab2778cce2')
 
     def test_update_book(self):
         # Define a test book
@@ -83,7 +83,7 @@ class BooksTests(unittest.TestCase):
         update_book = {
           "title": update_title
         }
-        book_id = '7a6113c4-b136-4373-8e65-fd56edf06dab'
+        book_id = '10729227-e701-42ae-9db9-21ab2778cce2'
 
         # Make a POST request to create the book
         request, response = app.test_client.put(f'/books/{book_id}', json = update_book, headers = headers)
@@ -105,7 +105,7 @@ class BooksTests(unittest.TestCase):
         # Define a test book
         headers = self.test_login()
         print("header: ", headers)
-        book_id = 'a4ce6409-541d-48bd-bb98-24b8aedbb017'
+        book_id = '3e6530ea-111b-4b9a-a160-21df718c6df2'
 
         request, response = app.test_client.delete(f'/books/{book_id}', headers = headers)
 
