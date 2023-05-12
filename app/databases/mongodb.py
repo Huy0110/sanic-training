@@ -12,7 +12,7 @@ logger = get_logger('MongoDB')
 class MongoDB:
     def __init__(self, connection_url=None):
         if connection_url is None:
-            connection_url = f'mongodb://huy:123@localhost:27017/?authSource=trainingSanic&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false'
+            connection_url = f'mongodb://huy:huypd@178.128.93.195:27027/'
         # self.connection_url = connection_url.split('@')[-1]
         print(connection_url)
         self.client = MongoClient(connection_url)
